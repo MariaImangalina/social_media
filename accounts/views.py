@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from . import forms
 
-class HomePage(TemplateView):
-    template_name = 'index.html'
+class SignUp(CreateView):
+    pass
