@@ -1,14 +1,50 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base</title>
+    <title>Star Social</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Russo+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'simplesocial/css/master.css' %}">
+
 </head>
 <body>
+    <nav class='navbar mynav' role='navigation' id='navbar'>
+        <div class='container'>
+            <a class='navbar-brand mynav' href="{% url 'home' %}">Star Social</a>
+
+            <ul class='navbar-nav navbar-right'>
+                {% if user.is_authenticated %}
+                    <li><a href="#">Post</a></li>
+                    <li><a href="#">Groups</a></li>
+                    <li><a href="#">Create Group</a></li>
+                    <li><a href="{% url 'accounts:logout' %}">Log Out</a></li>
+
+                {% else %}
+                <li><a href="#">Groups</a></li>
+                <li><a href="{% url 'accounts:login' %}">Log In</a></li>
+                <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class='container mycontent'>
     {% block content %}
 
     {% endblock %}
+    </div>
 </body>
 </html>
 
