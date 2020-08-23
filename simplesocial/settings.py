@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from secrets import SECRET_KEY
+from .secrets import *
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -123,3 +124,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
+
+LOGIN_REDIRECT_URL = 'test'
+LOGOUT_REDIRECT_URL = 'thanks'
