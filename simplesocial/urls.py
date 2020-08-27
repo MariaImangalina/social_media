@@ -24,5 +24,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  #присоединяет внутренности модуля auth
     path('test/', views.TestPage.as_view(), name='test'),
     path('thanks/', views.ThanksPage.as_view(), name='thanks'),
+    path('groups/', include('groups.urls', namespace='groups')),
+    path('posts/', include('posts.urls', namespace='posts')),
 ]
 
